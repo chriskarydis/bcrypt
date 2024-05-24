@@ -1,0 +1,2 @@
+# Command to break the custom password made by the user with the pattern 'U220698h!'
+./john.exe --wordlist=date_wordlist.txt --format=bcrypt --fork=20 --mask=?u?w?l?s my_hashed_password.txt
