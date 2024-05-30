@@ -3,8 +3,10 @@ import getpass
 
 def hash_password(password):
     try:
+        # Number of rounds (cost factor)
+        cost = 12
         # Generate a salt
-        salt = bcrypt.gensalt()
+        salt = bcrypt.gensalt(rounds=cost)
         # Hash the password with the generated salt
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
         # Return the hashed password as a UTF-8 encoded string
