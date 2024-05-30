@@ -3,17 +3,17 @@ from datetime import datetime, timedelta
 # Function to generate a wordlist of dates formatted as ddmmyy
 def generate_wordlist(start_year, end_year):
     wordlist = []
-    current_date = datetime(start_year, 1, 1)
-    end_date = datetime(end_year + 1, 1, 1)
+    current_date = datetime(end_year, 12, 31)
+    end_date = datetime(start_year - 1, 12, 31)
 
     # Loop through each day from start_date to end_date
-    while current_date < end_date:
+    while current_date > end_date:
         # Format the current date as ddmmyy
         formatted_date = current_date.strftime("%d%m%y")
         # Append the formatted date to the wordlist
         wordlist.append(formatted_date)
         # Move to the next day
-        current_date += timedelta(days=1)
+        current_date -= timedelta(days=1)
 
     return wordlist
 
@@ -26,7 +26,7 @@ def save_wordlist(wordlist, filename):
 
 # Define the start and end years
 start_year = 1970
-end_year = 2030
+end_year = 2024
 
 # Generate the wordlist of dates
 wordlist = generate_wordlist(start_year, end_year)
