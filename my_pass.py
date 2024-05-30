@@ -4,7 +4,7 @@ import getpass
 def hash_password(password):
     try:
         # Number of rounds (cost factor)
-        cost = 12
+        cost = 4
         # Generate a salt
         salt = bcrypt.gensalt(rounds=cost)
         # Hash the password with the generated salt
